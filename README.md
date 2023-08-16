@@ -15,6 +15,14 @@ You can use the `useWeekView` hooks for creating a fully customized week calenda
 
 ## Example
 
+```bash
+# npm
+npm install react-weekview
+
+# yarn
+yarn add react-weekview
+```
+
 ```tsx
 // use the hook and build the design yourself
 const { days, nextWeek, previousWeek, goToToday, viewTitle } = useWeekView({
