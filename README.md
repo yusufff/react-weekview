@@ -1,27 +1,54 @@
-# React + TypeScript + Vite
+# React WeekView
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React component and hook for creating week view calendars.
 
-Currently, two official plugins are available:
+You can use the `useWeekView` hooks for creating a fully customized week calendar or use the `WeekView` component.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quick Features
 
-## Expanding the ESLint configuration
+- Headless hook for building customized designs
+- Prestyled and customizable component
+- Minimal dependency (only [date-fns](https://date-fns.org/))
+- Simple, not bloated
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Example
 
-- Configure the top-level `parserOptions` property like this:
+```tsx
+// use the hook and build the design yourself
+const { days, nextWeek, previousWeek, goToToday, viewTitle } = useWeekView({
+  disabledCell(date) {
+    return isBefore(date, new Date());
+  },
+  disabledWeek(startDayOfWeek) {
+    return isBefore(startDayOfWeek, startOfWeek(new Date()));
+  },
+});
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+// or use the component
+<WeekView />;
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## `useWeekView`
+
+### Props
+
+| prop           | type                                                          | default            | description                                                  |
+| :------------- | :------------------------------------------------------------ | :----------------- | :----------------------------------------------------------- |
+| `initialDate`  | `?Date`                                                       | `new Date()`       | Initial date to start from                                   |
+| `minuteStep`   | `?number`                                                     | `30`               | How many minutes should there be between the generated cells |
+| `weekStartsOn` | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6`                             | `1`                | the index of the first day of the week (0 - Sunday)          |
+| `locale`       | [`date-fns` Locale](https://date-fns.org/v2.30.0/docs/Locale) | `date-fns` default | A locale object                                              |
+| `disabledCell` | `?(date: Date) => boolean`                                    | -                  | A function for determining the cells that cannot be selected |
+| `disabledDay`  | `?(date: Date) => boolean`                                    | -                  | A function for determining the days that cannot be selected  |
+| `disabledWeek` | `?(startDayOfWeek: Date) => boolean`                          | -                  | A function for determining the weeks that cannot be viewed   |
+
+### Returns
+
+| field          | type                                    | description                                    |
+| :------------- | :-------------------------------------- | :--------------------------------------------- |
+| `days`         | [`Days`](/src/lib/use-weekview.ts#L115) | An array of days and hours for the active week |
+| `weekNumber`   | `string`                                | Week number of the active week                 |
+| `viewTitle`    | `string`                                | Month and year of the active week              |
+| `nextWeek`     | `() => void`                            | Go to next week                                |
+| `previousWeek` | `() => void`                            | Go to previous week                            |
+| `goToToday`    | `() => void`                            | Go to current week                             |
