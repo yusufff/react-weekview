@@ -24,6 +24,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
+    "build:demo": "tsc && vite build --mode web",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "release": "release-it"
