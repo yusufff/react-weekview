@@ -22,6 +22,7 @@
       "require": "./dist/index.umd.js"
     }
   },
+  "sideEffects": false,
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
