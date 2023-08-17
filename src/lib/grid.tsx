@@ -5,12 +5,12 @@ import { Cell, Days } from "./use-weekview";
 
 export default function Grid({
   days,
-  rowHeight = 56,
+  rowHeight,
   CellContent,
   onCellClick,
 }: {
   days: Days;
-  rowHeight?: number;
+  rowHeight: number;
   onCellClick?: (cell: Cell) => void;
   CellContent?: (cell: Cell) => ReactNode;
 }) {
