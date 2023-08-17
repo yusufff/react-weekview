@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     dts({
       insertTypesEntry: true,
+      entryRoot: path.resolve(__dirname, "src/lib/"),
     }),
   ],
   build:
