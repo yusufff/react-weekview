@@ -62,3 +62,14 @@ const { days, nextWeek, previousWeek, goToToday, viewTitle } = useWeekView({
 | `nextWeek`     | `() => void`                            | Go to next week                                |
 | `previousWeek` | `() => void`                            | Go to previous week                            |
 | `goToToday`    | `() => void`                            | Go to current week                             |
+
+## `<WeekView />`
+
+### Props
+
+_...`useWeekView` props_
+| prop | type | default | description |
+| :------------- | :------------------------------------------------------------ | :----------------- | :----------------------------------------------------------- |
+| `events` | [`?Event[]`](/src/lib/weekview.tsx#L9) | - | Event list to display on the calendar |
+| `onCellClick` | `?(cell: Cell) => void` | - | Cell click callback |
+| `onEventClick` | `?(evet: Event) => void` | - | Event click callback |
