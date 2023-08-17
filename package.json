@@ -8,11 +8,16 @@
     "week",
     "react"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusufff/react-weekview.git"
+  },
   "files": [
     "dist",
     "README.md"
   ],
   "type": "module",
+  "source": "./src/lib/index.ts",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.es.d.ts",
