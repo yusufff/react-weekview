@@ -4,7 +4,7 @@ A React component and hook for creating week view calendars.
 
 You can use the `useWeekView` hooks for creating a fully customized week calendar or use the `WeekView` component.
 
-**Demo**: [react-weekview.vercel.app](react-weekview.vercel.app)
+**Demo**: [react-weekview.vercel.app](https://react-weekview.vercel.app)
 
 ## Quick Features
 
