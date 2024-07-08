@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => ({
   build:
     mode !== "web"
       ? {
+          copyPublicDir: false,
           lib: {
             entry: path.resolve(__dirname, "src/lib/index.ts"),
             name: "react-weekview",
