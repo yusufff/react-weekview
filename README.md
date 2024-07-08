@@ -1,5 +1,7 @@
 # React WeekView
 
+[![NPM Version](https://img.shields.io/npm/v/react-weekview?style=flat&label=react-weekview)](https://www.npmjs.com/package/react-weekview)
+
 A React component and hook for creating week view calendars.
 
 You can use the `useWeekView` hooks for creating a fully customized week calendar or use the `WeekView` component.
